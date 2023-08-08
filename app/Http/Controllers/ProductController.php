@@ -13,20 +13,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return Product::with("stocks")->get();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreProductRequest $request)
     {
         //
@@ -37,20 +27,11 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return $product->with('stocks')->find($product);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Product $product)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateProductRequest $request, Product $product)
     {
         //
